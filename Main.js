@@ -11,23 +11,24 @@ const { PORT, DISCORD_API_TOKEN, PROJECT_DOMAIN } = process.env
 // Bot
 var Discord = require("discord.js");
 var bot = new Discord.Client();
-var d = new Date()
 
-const day = function(day, msg) {
+
+const printBossSpawn = function(d, msg) {
   //msg.channel.send((d.getHours()+1+d.getMinutes()/100))
-  //msg.channel.send(getDayTimetable('horas').hora1)
-  //msg.channel.send((d.getHours()+1) < getDayTimetable('horas').hora1)
+  //msg.channel.send(d.getMinutes()/100)
+  //msg.channel.send(getDayTimetable('horas').hora7)
+  //msg.channel.send((d.getHours()+1) < getDayTimetable('horas').hora7)
   var x = " will spawn at: "
-  if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora0) x = getDayTimetable('dia'+day).hora0+x+getDayTimetable('horas').hora0+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora1) x = getDayTimetable('dia'+day).hora1+x+getDayTimetable('horas').hora1+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora2) x = getDayTimetable('dia'+day).hora2+x+getDayTimetable('horas').hora2+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora3) x = getDayTimetable('dia'+day).hora3+x+getDayTimetable('horas').hora3+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora4) x = getDayTimetable('dia'+day).hora4+x+getDayTimetable('horas').hora4+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora5) x = getDayTimetable('dia'+day).hora5+x+getDayTimetable('horas').hora5+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora6) x = getDayTimetable('dia'+day).hora6+x+getDayTimetable('horas').hora6+'h'
-  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora7) x = getDayTimetable('dia'+day).hora7+x+getDayTimetable('horas').hora7+'h'
-  else if((day+1) === 6) x = getDayTimetable('dia0').hora0+x+getDayTimetable('horas').hora0+'h'
-  else x = getDayTimetable('dia'+(day+1)).hora0+x+getDayTimetable('horas').hora0+'h'
+  if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora0) x = getDayTimetable('dia'+d.getDay()).hora0+x+getDayTimetable('horas').hora0+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora1) x = getDayTimetable('dia'+d.getDay()).hora1+x+getDayTimetable('horas').hora1+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora2) x = getDayTimetable('dia'+d.getDay()).hora2+x+getDayTimetable('horas').hora2+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora3) x = getDayTimetable('dia'+d.getDay()).hora3+x+getDayTimetable('horas').hora3+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora4) x = getDayTimetable('dia'+d.getDay()).hora4+x+getDayTimetable('horas').hora4+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora5) x = getDayTimetable('dia'+d.getDay()).hora5+x+getDayTimetable('horas').hora5+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora6) x = getDayTimetable('dia'+d.getDay()).hora6+x+getDayTimetable('horas').hora6+'h'
+  else if((d.getHours()+1+d.getMinutes()/100) < getDayTimetable('horas').hora7) x = getDayTimetable('dia'+d.getDay()).hora7+x+getDayTimetable('horas').hora7+'h'
+  else if((d.getDay()+1) === 6) x = getDayTimetable('dia0').hora0+x+getDayTimetable('horas').hora0+'h'
+  else x = getDayTimetable('dia'+(d.getDay()+1)).hora0+x+getDayTimetable('horas').hora0+'h'
   msg.channel.send(x)
 }
 
@@ -50,7 +51,10 @@ bot.on("message", function (msg) {
       msg.pin()
     });
   }
-  else if(msg.content === '!boss') day(d.getDay(), msg)
+  else if(msg.content === '!boss') {
+    var d = new Date()
+    printBossSpawn(d, msg)
+  }
 });
 bot.login(DISCORD_API_TOKEN)
 
