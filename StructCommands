@@ -1,0 +1,18 @@
+const commands = {
+  comandos: { type: 'text', content: '!boss --> Comando que te indica cuando sale el próximo boss\n!normas --> Comando que te indica las normas del clan\nGuías:\n\t**Guías de Catty**\n\t\t!cooking/cocina --> Guía sobre cocina\n\t\t!trade/tradeo --> Guía sobre el tradeo\n\t\t!alchemy/alquimia --> Guía sobre la alquimia\n\t\t!necklace/collar --> Guía sobre joyeria(collar)\n\t\t!epheria --> Guía sobre el Epheria\n\t\t!gramverre/caballo --> Guía sobre armadura de caballo\n\t\t!wagon/carro --> Guía sobre carro kamasilvia\n\t**Guía de Asathes**\n\t\t!afk --> Guía sobre el profit AFK' },
+  normas: { type: 'text', content: '**Contrato:**\n- Cada 10.000 puntos, el sueldo se dobla hasta llegar al máximo (5M).\n- Contratos de 14 días.\n- Si se caduca el contrato sin los 10.000 puntos acumulados, habrá una reducción del 50% del sueldo (para los que cobren más de 500.000 silver).' },
+  cooking: { type: 'text', content: 'Guía sobre cocina:\nhttps://docs.google.com/spreadsheets/d/1j_hxGjwRoVFvx_nL9ammDHFMqQnvpdUZTgTE-zxjXU0/edit?usp=sharing' },
+  trade: { type: 'text', content: 'Guía sobre trade:\nhttps://docs.google.com/spreadsheets/d/1TVTVRAPXNz5aOWzcqDsnfBheRBonPmPKbAJUONuKDxY/edit?usp=sharing' },
+  alchemy: { type: 'text', content: 'Guía sobre alquimia:\nhttps://docs.google.com/spreadsheets/d/1M0fldz4cxHVu2EDQurrD6CGOOXLiZOPMnnuVBwp2cC0/edit?usp=sharing' },
+  necklace: { type: 'text', content: 'Guía sobre joyeria (collares):\nhttps://docs.google.com/spreadsheets/d/10UBv5YUMM-vdSxFo7682ChF8muk1WR4tWMwuXksEitU/edit?usp=sharing' },
+  epheria: { type: 'text', content: 'Guía sobre el barco Epheria:\nhttps://docs.google.com/spreadsheets/d/1Bk3FiTd2oP-9OZ-T3dG8kSciIukVnc8COyrqOqZebs8/edit?usp=sharing' },
+  gramverre: { type: 'text', content: 'Guía sobre el equipo de caballo Gramverre:\nhttps://docs.google.com/spreadsheets/d/1yHLQhgAgNJnwIh7NYtY6mwjsMYQaR48QVVnSWJJPxHQ/edit?usp=sharing' },
+  wagon: { type: 'text', content: 'Guía sobre el carro de Kamasylvia\nhttps://docs.google.com/spreadsheets/d/1eaRtCeoO8sIwhumFDWkDNjKRrf-uc3CDEb70on2_4gg/edit?usp=sharing' },
+  afk: { type: 'text', content: 'Guía sobre como ganar dinero AFK\nhttps://docs.google.com/document/d/1SsFfbUwP5gPf5mLre7KucHTv6bmabrT8n0nNL0ewRqc/edit?usp=sharing' },
+}
+
+const getCommands = () => commands
+
+export const getCommand = command => getCommands()[command]
+
+export default getCommand
