@@ -1,0 +1,9 @@
+const surveys = {
+  bossSurvey: { content: 'Mensaje informativo sobre los Guild Scrolls de este sabado. Se pide un minimo de 5 personas para que se puedan llevar a cabo.\nNos gustaria que nos indicarais quienes vais a venir. Gracias.' }
+}
+
+const getSurveys = () => surveys
+
+export const getSurvey = survey => getSurveys()[survey]
+
+export default getSurvey
