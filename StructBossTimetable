@@ -1,0 +1,16 @@
+const timetable = {
+    /*Lunes*/     dia1: {hora0: "Kutum & Karanda", hora1: "Karanda", hora2: "Kzarka", hora3: "Kzarka", hora4: "Offin", hora5: "Kutum", hora6: "Nouver", hora7: "Kzarka"},
+    /*Martes*/    dia2: {hora0: "Karanda", hora1: "Kutum", hora2: "Kzarka", hora3: "Nouver", hora4: "Kutum", hora5: "Nouver", hora6: "Karanda", hora7: "Garmoth"},
+    /*Miercoles*/ dia3: {hora0: "Kutun & Kzarka", hora1: "Karanda", hora2: "Kzarka", hora3: "Karanda", hora4: "Maintenance", hora5: "Kutum", hora6: "Offin", hora7: "Karanda & Kzarka"},
+    /*Jueves*/    dia4: {hora0: "Nouver", hora1: "Kutum", hora2: "Nouver", hora3: "Kutum", hora4: "Nouver", hora5: "Kzarka", hora6: "Kutum", hora7: "Garmoth"},
+    /*Viernes*/   dia5: {hora0: "Kzarka & Karanda", hora1: "Nouver", hora2: "Karanda", hora3: "Kutum", hora4: "Karanda", hora5: "Nouver", hora6: "Kzarka", hora7: "Kutum & Kzarka"},
+    /*Sábado*/    dia6: {hora0: "Karanda", hora1: "Offin", hora2: "Nouver", hora3: "Kutum", hora4: "Nouver", hora5: "Quint & Muraka", hora6: "Karanda & Kzarka", hora7: "No boss"},
+    /*Domingo*/   dia0: {hora0: "Nouver & Kutum", hora1: "Kzarka", hora2: "Kutum", hora3: "Nouver", hora4: "Kzarka", hora5: "Vell", hora6: "Garmoth", hora7: "Kzarka & Nouver"},
+    horas: {hora0: "00.15", hora1: "02.00", hora2: "05.00", hora3: "09.00", hora4: "12.00", hora5: "16.00", hora6: "19.00", hora7: "22.15"}
+}
+
+const getTimetable = () => timetable
+
+export const getDayTimetable = day => getTimetable()[day]
+
+export default getDayTimetable
